@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "codemem"
+version = "0.1.0"
+description = "A CLI coding agent with research-informed 4-layer memory system"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.39.0",
+    "rich>=13.0.0",
+    "prompt_toolkit>=3.0.0",
+    "pydantic>=2.0.0",
+    "click>=8.0.0",
+    "numpy>=1.24.0",
+    "sentence-transformers>=2.2.0",
+    "httpx>=0.25.0",
+    "gitpython>=3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[project.scripts]
+codemem = "codemem.cli.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/codemem"]
