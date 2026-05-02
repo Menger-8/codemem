@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "codemem"
 version = "0.1.0"
 description = "A CLI coding agent with research-informed 4-layer memory system"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
     "anthropic>=0.39.0",
     "rich>=13.0.0",
@@ -14,12 +14,14 @@ dependencies = [
     "pydantic>=2.0.0",
     "click>=8.0.0",
     "numpy>=1.24.0",
-    "sentence-transformers>=2.2.0",
     "httpx>=0.25.0",
     "gitpython>=3.1.0",
 ]
 
 [project.optional-dependencies]
+full = [
+    "sentence-transformers>=2.2.0",
+]
 dev = [
     "pytest>=7.0.0",
     "pytest-asyncio>=0.21.0",

@@ -45,19 +45,25 @@ Git:      git_status / git_diff / git_log / git_branch
 
 ### 前置要求
 
-- Python 3.11+
+- Python 3.10+
 - Anthropic API Key
 
 ### 安装步骤
 
 ```bash
 # 克隆仓库
-git clone https://github.com/your-username/codemem.git
+git clone https://github.com/Menger-8/codemem.git
 cd codemem
 
-# 安装
+# 基础安装（轻量，使用 fallback embedding）
 pip install -e .
+
+# 完整安装（含 sentence-transformers，更好的语义检索）
+pip install -e ".[full]"
 ```
+
+> **注意**：基础安装使用 hash-based fallback embedding，功能完整但检索质量稍低。
+> 完整安装会下载 ~2GB 的 PyTorch + sentence-transformers，但提供更好的语义搜索。
 
 ## 配置
 
@@ -208,7 +214,7 @@ python -m codemem.cli.main . --session <session-id>
 | REMem (2026) | 情景记忆图谱 | Gist + Fact 节点 |
 | MEM1 (2025) | 记忆即推理 | 工作记忆压缩 |
 
-详细论文笔记见 [`md/`](md/) 目录。
+详细论文笔记见项目内 [`md/`](md/) 目录（未包含在仓库中）。
 
 ## 开发
 
